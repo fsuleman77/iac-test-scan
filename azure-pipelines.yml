@@ -10,6 +10,15 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: prisma-cloud-compute-scan@1
+  inputs:
+    scanType: 'images'
+    twistlockService: 'PC-Console-Scanner'
+    vulnerabilityThreshold: 'high'
+    onlyFixed: false
+    gracePeriod: '0'
+    complianceThreshold: 'high'
+    artifact: '*'
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
