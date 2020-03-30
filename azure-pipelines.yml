@@ -10,6 +10,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: Prisma Cloud IaC Scan@1
+  inputs:
+    Path: '$(System.DefaultWorkingDirectory)/fsuleman77.iac-test-scan'
+    prismaCloudService: 'PrismaCloud IaC Scanner (Fahd Devops)'
+    High: '0'
+    Medium: '0'
+    Low: '0'
+    Operator: 'or'
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
